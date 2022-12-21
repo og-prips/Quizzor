@@ -74,6 +74,7 @@ const evaluateQuestion = (answer, correctAnswer) => {
 
   optionButtonsArr.forEach((button) => {
     button.disabled = true;
+    button.style.backgroundColor = "rgb(0, 0, 0, 0.8)";
   });
 
   if (answer == correctAnswer) {
