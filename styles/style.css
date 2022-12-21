@@ -1,0 +1,267 @@
+:root {
+  --bg-color: rgb(20, 20, 20);
+  --card-color: rgb(23, 23, 23);
+  --quizbtn-color: rgb(79, 136, 185);
+}
+
+body {
+  background-color: rgb(0, 162, 255);
+  background: -webkit-linear-gradient(to right, black, rgb(0, 162, 255));
+  background: radial-gradient(
+    circle at center,
+    rgb(32, 32, 32) 0%,
+    rgb(0, 0, 0) 100%
+  );
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  padding: 0px;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  #title {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #title {
+    font-size: 1.5em;
+  }
+}
+
+#title {
+  width: 100%;
+  /* font-size: 2em; */
+  margin-bottom: 20px;
+}
+
+#quiz-template {
+  display: none;
+}
+
+#add-question {
+  float: left;
+}
+
+#add-question,
+#save-quiz {
+  margin-top: 20px;
+}
+
+#save-quiz {
+  float: right;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 922px;
+  width: calc(100% - 20px);
+}
+
+#cards:hover > .card > .card-border {
+  opacity: 1;
+}
+
+.card {
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  height: 260px;
+  position: relative;
+  width: 300px;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card > .card-border {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+  z-index: 2;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(14, 219, 58, 0.062),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.card > .card-border {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(14, 219, 58, 0.3),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  height: calc(100% - 2px);
+  margin: 1px;
+  position: relative;
+  width: calc(100% - 2px);
+  z-index: 2;
+}
+
+.card > .card-content h1 {
+  position: absolute;
+  margin-top: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.card > .delete-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background-color: rgba(255, 0, 0, 0.74);
+  border: none;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  top: -5px;
+  right: -5px;
+  z-index: 4;
+}
+
+.option-block {
+  display: inline-block;
+  padding: 10px;
+}
+
+.options-block input[type="text"] {
+  width: 90%;
+  margin-top: 15px;
+}
+
+.center-items {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt-block a {
+  margin: 2em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 2em;
+  padding: 2em 5em 2em 5em;
+  background: radial-gradient(circle, rgb(53, 53, 53) 0%, rgb(12, 12, 12) 100%);
+  border-radius: 20px;
+  transition: 0.5s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.prompt-block a:hover {
+  background: radial-gradient(circle, rgb(63, 63, 63) 0%, rgb(12, 12, 12) 100%);
+  scale: 1.05;
+}
+
+.quiz-block {
+  background-color: white;
+  padding: 4em;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 700px;
+}
+
+.quiz-button {
+  width: 15em;
+  height: 3em;
+  margin: auto;
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: var(--quizbtn-color);
+  color: white;
+  font-size: 1em;
+  border-radius: 1em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.quiz-button:hover {
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
+.quiz-next-button {
+  width: 8em;
+  height: 3em;
+  margin-top: 2em;
+  border-radius: 1em;
+  font-size: 1em;
+  color: white;
+  background-color: rgb(79, 136, 185);
+  cursor: pointer;
+  display: none;
+}
+
+.quiz-next-button:hover {
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
+.home-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.home-button a {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: black;
+  font-size: 1em;
+  padding: 1em 2em 1em 2em;
+  background-color: white;
+  border-radius: 20px;
+  transition: 0.5s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.home-button a:hover {
+  color: white;
+  background-color: black;
+}

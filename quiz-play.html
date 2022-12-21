@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/models/quiz-item.js" defer></script>
+    <script src="js/models/quiz.js" defer></script>
+    <script src="js/components/quiz-play.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/a0d2af156c.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Quizzor - Spela</title>
+  </head>
+  <body>
+    <div class="home-button">
+      <a href="index.html">Gå tillbaka</a>
+    </div>
+    <div id="cards"></div>
+
+    <div id="quiz-template" class="center-items">
+      <div class="quiz-block">
+        <h1 id="title">fråga visas här</h1>
+        <div>
+          <button id="option-1" class="quiz-button" value="0">svar 1</button>
+          <button id="option-2" class="quiz-button" value="1">svar 2</button>
+        </div>
+        <div>
+          <button id="option-3" class="quiz-button" value="2">svar 3</button>
+          <button id="option-4" class="quiz-button" value="3">svar 4</button>
+        </div>
+        <button id="proceed" class="quiz-next-button">Nästa fråga</button>
+      </div>
+    </div>
+  </body>
+</html>
