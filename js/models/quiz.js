@@ -8,6 +8,18 @@ class Quiz {
     localStorage.setItem(`${this.title}`, JSON.stringify(this));
   }
 
+  getAll() {
+    let values = [],
+      keys = Object.keys(localStorage),
+      i = keys.length;
+
+    while (i--) {
+      values.push(JSON.parse(localStorage.getItem(keys[i])));
+    }
+
+    return values;
+  }
+
   static createCard(quiz, container) {
     const card = document.createElement("div");
     card.classList.add("card");

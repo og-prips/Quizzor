@@ -5,13 +5,13 @@ const optionButtons = document.getElementsByClassName("quiz-button");
 const optionButtonsArr = Array.from(optionButtons);
 const proceedButton = document.getElementById("proceed");
 
-let quiz;
+let quiz = new Quiz();
 let quizItemIndex = 0;
 let score = 0;
 let quizComplete = false;
 
 const drawQuizCards = () => {
-  const allQuizzez = allStorage();
+  const allQuizzez = quiz.getAll();
 
   allQuizzez.forEach((quiz) => {
     Quiz.createCard(quiz, quizContainer);
@@ -87,18 +87,6 @@ const evaluateQuestion = (answer, correctAnswer) => {
   optionButtonsArr.find(
     (option) => option.value == correctAnswer
   ).style.backgroundColor = "green";
-};
-
-const allStorage = () => {
-  let values = [],
-    keys = Object.keys(localStorage),
-    i = keys.length;
-
-  while (i--) {
-    values.push(JSON.parse(localStorage.getItem(keys[i])));
-  }
-
-  return values;
 };
 
 window.addEventListener("load", () => {
